@@ -64,7 +64,7 @@ cy.get('.mt-50 h2').should('contain',"Welcome to QAClick Academy");
 
 // handling the web tables with cypress using each command
 
-it.only("handling the web tables with cypress using each command", ()=>{
+it("handling the web tables with cypress using each command", ()=>{
 
 cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
