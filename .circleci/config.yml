@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs:
+  cypress-run:
+    docker:
+      - image: cypress/base:12
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Run Cypress tests
+          command: npx cypress run
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - cypress-run
