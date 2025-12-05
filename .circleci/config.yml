@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   cypress-run:
     docker:
-      - image: cypress/base:12
+      - image: cypress/base:20
     working_directory: ~/repo
     steps:
       - checkout
