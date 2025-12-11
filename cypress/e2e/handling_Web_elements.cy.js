@@ -1,3 +1,6 @@
+
+import 'cypress-iframe'
+
 describe("Cypress new tests", ()=> {
 
 it("handling the webelements", ()=> {
@@ -97,8 +100,32 @@ cy.wait(6000);
 cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 cy.contains("Reload").click({force:true});
 
+
+//handling iframe 
+cy.frameLoaded('#courses-iframe')
+cy.iframe().find("a[href*='/mentorship']").eq(0).click();
+
 // handling child windows using cypress
-// handling frames with cypress using real time example 
-// Automating calendars using cypress 
-});
+cy.get('[id="opentab"]').then( function (el){
+const url = el.prop('href')
+cy.visit(url)
+cy.origin (url, ()=> {
+    cy.get("div.sub-menu-bar a[href*='about']").click();
+
+    /* 
+    handling the calenders  
+    const monthNumber ="6";
+    const date ="15";
+    const year = "2027";
+    cy.visit("url")
+    cy.get(css locator with parent as represent year )
+   cy.get(css locator with parent as represent  month)
+   cy.get(css locator with parent as represent date )  
+   cy.contains('buttons', year).click();
+   cy.get(month css).eq(Number(monthNumber-1)).click();
+   cy.contains("abb", date).click();
+ */
+}) 
+})
+})
 });
