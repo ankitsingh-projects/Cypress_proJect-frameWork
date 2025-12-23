@@ -1,20 +1,12 @@
 version: 2.1
 
-jobs:
-  cypress/run:
-    docker:
-      - image: cypress/base:18  # Node + Cypress environment
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm ci
-      - run:
-          name: Run Cypress tests
-          command: npx cypress run
+orbs:
+  cypress: cypress-io/cypress@3.3.1
 
 workflows:
-  version: 2
-  test:
+  build-and-test:
     jobs:
-      - cypress/run
+      - cypress/run:
+          install-command: npm install
+          cypress-command: npx cypress run
+
