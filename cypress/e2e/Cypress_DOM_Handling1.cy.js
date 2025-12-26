@@ -100,9 +100,11 @@ cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 cy.contains("Reload").click({force:true});
 
 
-//handling iframe 
-cy.frameLoaded('#courses-iframe')
-cy.iframe().find("a[href*='/mentorship']").eq(0).click();
+//handling iframe
+ 
+cy.frameLoaded('[id="courses-iframe"]:eq(0)')
+cy.iframe('[id="courses-iframe"]:eq(0)').find('[href="https://courses.rahulshettyacademy.com/sign_up"]').eq(1).click();
+
 
 // handling child windows using cypress
 cy.get('[id="opentab"]').then( function (el){
