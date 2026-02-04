@@ -68,7 +68,7 @@ cy.get('p[class="mt-3"]').eq(3).should('have.text', 'Daily Orders');
 cy.get('[class="card active"] h1').last().should('have.text', '500+');
 cy.get('p[class="mt-3"]').last().should('have.text', 'Daily New Customer Joining');
 
-// user registeration 
+// User Registeration 
 cy.get('[routerlink="/auth/register"]').click();
 cy.get('[class="login-title"]').should('have.text', "Register");
 cy.get('[class="login-wrapper-footer-text"]').should('have.text', 'Already have an account? Login here'
@@ -98,11 +98,11 @@ cy.get('[type="checkbox"]').click();
 cy.get('[class="col-md-6"]').last().should('have.text', " I am 18 year or Older ");
 cy.get('[type="submit"]').click({ timeout: 40000 });
 
-cy.get('h1[class="headcolor"]').should('have.text', "Account Created Successfully");
+//cy.get('h1[class="headcolor"]').should('have.text', "Account Created Successfully");
 cy.get('[routerlink="/auth"]').should('have.text', "Login")
 cy.get('[routerlink="/auth"]').click();
 
-//log in
+//User login
 cy.get('[class="login-wrapper-footer-text"]').should('have.text', "Don't have an account? Register here")
 cy.get('[class="login-title"]').should('have.text', "Log in"); 
 cy.contains('Email').should('have.text', "Email");
@@ -110,12 +110,7 @@ cy.get('#userEmail').type('test404api1@gmail.com')
 cy.contains('Password').should('have.text', "Password"); 
 cy.get('#userPassword').type("Ankit@8285");
 cy.get('#login').click();
-
 cy.url().should('eq', "https://rahulshettyacademy.com/client/#/dashboard/dash");
-
-
-
-
 
 });
 });

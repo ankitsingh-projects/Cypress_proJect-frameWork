@@ -74,5 +74,10 @@ cy.get('.errorAlert').should('have.text', "Please accept Terms & Conditions - Re
 cy.get('.chkAgree').check();
 cy.contains('Proceed').click();
 
+
+cy.get('[class="products"]').should('have.text',"Thank you, your order has been placed successfully  You'll be redirected to Home page shortly!!")
+
+//full e2e flow for greenkart application 
+
 });
 });
